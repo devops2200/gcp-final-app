@@ -38,3 +38,19 @@ cd terraform
 # Замініть YOUR_PROJECT_ID та YOUR_PROJECT_NUMBER на ваші дані
 terraform init
 terraform apply -var="project_id=YOUR_PROJECT_ID" -var="project_number=YOUR_PROJECT_NUMBER"
+
+2. Налаштування BigQuery ML
+Після застосування Terraform виконайте цей SQL-запит у консолі BigQuery, щоб створити модель для генерації ембеддінгів:
+
+    CREATE OR REPLACE MODEL `enterprise_rag_v2.embedding_model_005`
+    REMOTE WITH CONNECTION `us.vertex-ai-gen2-conn`
+    OPTIONS (ENDPOINT = 'text-embedding-005');
+
+3. Налаштування тригера Eventarc
+⚠️ Важливо: Спочатку надайте права агенту Cloud Storage, інакше створення тригера завершиться помилкою.
+
+ 1. Дізнайтеся email службового агента GCS:
+
+    gcloud storage service-agent
+
+ 2.Надайте права (підставте email, отриманий на кроці 1):
