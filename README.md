@@ -78,15 +78,18 @@ terraform apply -var="project_id=YOUR_PROJECT_ID" -var="project_number=YOUR_PROJ
 
  Вимоги:
 
-    * Cloud Shell (рекомендовано) або локальний термінал.
-    * Встановлена бібліотека fpdf (для генерації PDF): pip install fpdf.
+    - Cloud Shell (рекомендовано) або локальний термінал.
+    - Встановлена бібліотека **fpdf** (для генерації PDF): **pip install fpdf**.
+ 
  Запуск перевірки:
     1. Створіть файл verify.sh і вставте в нього код із розділу "Скрипт перевірки" (див. нижче).
     2. Зробіть його виконуваним:
+
 ```bash
      chmod +x verify.sh
 ```
     3.Запустіть:
+
 ```bash
      ./verify.sh
 ```
